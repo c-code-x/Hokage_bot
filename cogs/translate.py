@@ -14,8 +14,8 @@ class Translate(commands.Cog):
     @commands.command()
     async def translate(self, ctx, *to_translate: str, ):
         to_translate = ' '.join(to_translate[:])
-        translated_text = self.tr.translate(to_translate).text
-        await ctx.send(translated_text)
+        translated = self.tr.translate(to_translate)
+        await ctx.send(f'Translated From: `{translated.src}`\n Translation: `{translated.text}`')
         
 
 def setup(bot):
